@@ -2,6 +2,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import "./App.css";
 import Education from "./components/education";
+import Experience from "./components/experience";
 import Hero from "./components/hero";
 import NavBar from "./components/navbar";
 import Skills from "./components/skills";
@@ -38,6 +39,7 @@ function App() {
           <Hero />
           <Wrapper>
             <Skills />
+            <Experience />
             <Education />
           </Wrapper>
         </Body>
