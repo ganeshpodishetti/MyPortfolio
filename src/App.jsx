@@ -37,8 +37,8 @@ function App() {
         <Body>
           <Hero />
           <Wrapper>
-            <Education />
             <Skills />
+            <Education />
           </Wrapper>
         </Body>
       </Router>
