@@ -9,7 +9,6 @@ export const Bio = {
   linkedin: "https://www.linkedin.com/in/ganesh-podishetti",
   twitter: "https://twitter.com/MGaneshnnn",
   insta: "https://www.youtube.com/@BeatsCrowd",
-  facebook: "https://www.facebook.com/rishav.chanda.165/",
 };
 
 export const skills = [

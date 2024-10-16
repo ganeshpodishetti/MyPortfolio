@@ -1,17 +1,21 @@
+import { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import "./App.css";
-import Education from "./components/education";
-import Experience from "./components/experience";
-import Hero from "./components/hero";
-import NavBar from "./components/navbar";
-import Skills from "./components/skills";
-import { darkTheme } from "./utils/theme";
+import Contact from "./components/Contact";
+import Education from "./components/Education";
+import Experience from "./components/Experience";
+import Footer from "./components/Footer";
+import HeroSection from "./components/hero";
+import Navbar from "./components/Navbar";
+import ProjectDetails from "./components/ProjectDetails";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import { darkTheme, lightTheme } from "./utils/theme.jsx";
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
   width: 100%;
-  height: 100%;
   overflow-x: hidden;
 `;
 
@@ -29,19 +33,29 @@ const Wrapper = styled.div`
   width: 100%;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%);
 `;
-
 function App() {
+  const [darkMode, setDarkMode] = useState(true);
+  const [openModal, setOpenModal] = useState({ state: false, project: null });
+  console.log(openModal);
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <Router>
-        <NavBar />
+        <Navbar />
         <Body>
-          <Hero />
+          <HeroSection />
           <Wrapper>
             <Skills />
             <Experience />
-            <Education />
           </Wrapper>
+          <Projects openModal={openModal} setOpenModal={setOpenModal} />
+          <Wrapper>
+            <Education />
+            <Contact />
+          </Wrapper>
+          <Footer />
+          {openModal.state && (
+            <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />
+          )}
         </Body>
       </Router>
     </ThemeProvider>
